@@ -12,6 +12,7 @@ class NewGameViewController: UIViewController {
     
     var countdownSeconds:Int = 4;
     var countDowntimer = Timer();
+    var gameTimer = Timer();
     var bubble = Bubble();
     var gameLength:Int = UserDefaults.standard.integer(forKey: "gameLength")
     var bubbles:Int = UserDefaults.standard.integer(forKey: "bubbles")
@@ -29,19 +30,7 @@ class NewGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     countDownLabel.text = "READY!";        countDowntimer = Timer.scheduledTimer( timeInterval: 1, target: self, selector: #selector(NewGameViewController.countdown), userInfo: nil, repeats: true)
-        // Do any additional setup after loading the view.
-        /*for gameTime in 0...gameLength{
-            
-            for _ in 0...bubbles{
-            generateBubble()
-            }
-            if (gameTime == 0){
-                print("Game Over!")
-            }
-            
-        }
- */
-        
+       gameTimer = Timer.scheduledTimer( timeInterval: 1, target: self, selector: #selector(NewGameViewController.gameTimeTimer), userInfo: nil, repeats: true)
     }
     
     @objc func countdown() {
@@ -51,23 +40,23 @@ class NewGameViewController: UIViewController {
             countDowntimer.invalidate()
             countDownLabel.text = "START!"
             
-        countDownLabel.text = String(bubbles)
-            
-            /*
-              for gameTime in 0...gameLength{
-                      
-                      for _ in 0...bubbles{
-                      generateBubble()
-                      }
-                      if (gameTime == 0){
-                          print("Game Over!")
-                      }
-                      
-                  }
-            
-            */
             
         }
+    }
+    
+    @objc func gameTimeTimer(){
+        
+        
+        repeat{
+        generateBubble()
+            bubbles -= 1
+        }while bubbles > 0
+        gameLength -= 1
+        if (gameLength == 0){
+            gameTimer.invalidate()
+            countDownLabel.text = "Game Over!"
+        }
+        
     }
     func generateBubble(){
         

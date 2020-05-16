@@ -25,16 +25,16 @@ class Bubble: UIButton{
             self.backgroundColor = UIColor.black
             self.value = 10
         case 6...15:
-            self.backgroundColor = UIColor.black
+            self.backgroundColor = UIColor.blue
             self.value = 8
         case 16...30:
-            self.backgroundColor = UIColor.black
+            self.backgroundColor = UIColor.green
             self.value = 5
         case 31...60:
-            self.backgroundColor = UIColor.black
+            self.backgroundColor = UIColor.systemPink
             self.value = 2
         case 61...100:
-            self.backgroundColor = UIColor.black
+            self.backgroundColor = UIColor.red
             self.value = 1
         default: print("error")
             
