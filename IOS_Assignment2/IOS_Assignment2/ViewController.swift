@@ -10,9 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var playerNameLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        playerNameLabel.text = UserDefaults.standard.object(forKey: "playerName") as? String
         // Do any additional setup after loading the view.
+        
     }
 
 
