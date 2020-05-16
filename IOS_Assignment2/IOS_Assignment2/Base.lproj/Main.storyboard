@@ -14,10 +14,25 @@
                     <view key="view" contentMode="scaleToFill" id="fdS-VN-zBY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="START" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKv-vD-h2K">
+                                <rect key="frame" x="144.5" y="380" width="125" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zKv-vD-h2K" firstAttribute="centerY" secondItem="3tk-S1-3qt" secondAttribute="centerY" id="Z18-VR-bBF"/>
+                            <constraint firstItem="zKv-vD-h2K" firstAttribute="centerX" secondItem="3tk-S1-3qt" secondAttribute="centerX" id="meh-NG-sZQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3tk-S1-3qt"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Game" id="xux-ap-VM3"/>
+                    <connections>
+                        <outlet property="countDownLabel" destination="zKv-vD-h2K" id="kwe-Vg-2lU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P1d-zE-ATg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
