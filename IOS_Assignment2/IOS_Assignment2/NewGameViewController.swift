@@ -25,13 +25,15 @@ class NewGameViewController: UIViewController {
     
     @IBOutlet weak var countDownLabel: UILabel!
     
+    @IBOutlet weak var timeLabel: UILabel!
     
+    @IBOutlet weak var scoreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     countDownLabel.text = "READY!";        countDowntimer = Timer.scheduledTimer( timeInterval: 1, target: self, selector: #selector(NewGameViewController.countdown), userInfo: nil, repeats: true)
-       gameTimer = Timer.scheduledTimer( timeInterval: 1, target: self, selector: #selector(NewGameViewController.gameTimeTimer), userInfo: nil, repeats: true)
-    }
+        gameTimer = Timer.scheduledTimer( timeInterval: 1, target: self, selector: #selector(NewGameViewController.gameTimeTimer), userInfo: nil, repeats: true)
+        timeLabel.text = String(gameLength)     }
     
     @objc func countdown() {
         countDownLabel.text = "READY!";    countdownSeconds -= 1
@@ -46,12 +48,16 @@ class NewGameViewController: UIViewController {
     
     @objc func gameTimeTimer(){
         
-        
+        timeLabel.text = String(gameLength)
         repeat{
         generateBubble()
             bubbles -= 1
         }while bubbles > 0
+        
         gameLength -= 1
+        timeLabel.text = String(gameLength)      //  self.view.remove
+        
+        self.viewWillAppear(true)
         if (gameLength == 0){
             gameTimer.invalidate()
             countDownLabel.text = "Game Over!"
