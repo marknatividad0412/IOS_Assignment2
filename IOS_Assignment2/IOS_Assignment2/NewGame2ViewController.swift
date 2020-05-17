@@ -8,13 +8,15 @@
 
 import UIKit
 
+
 class NewGame2ViewController: UIViewController {
 
     // declaring variables
     var gameTimer: Timer?
     var bubble = Bubble()
     var bubbleArray = [Bubble]()
-    var currentScore = 0;
+    var currentScore:Double = 0;
+    var highestScore:Double = 0;
     // Assigning user defaults values to variables
     var gameLength:Int = UserDefaults.standard.integer(forKey: "gameLength")
     var bubbles:Int = UserDefaults.standard.integer(forKey: "bubbles")
@@ -37,9 +39,11 @@ class NewGame2ViewController: UIViewController {
     
     @IBOutlet weak var gameTimeLabel: UILabel!
     
-    @IBOutlet weak var currentScoreLabel: UILabel!
+    @IBOutlet weak var currenScoreLabel: UILabel!
+    
     
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -75,7 +79,7 @@ class NewGame2ViewController: UIViewController {
             
            // checkingHighScoreExistence()
             
-            let destinationView = self.storyboard?.instantiateViewController(withIdentifier: "HighScoreViewController") as! HighScoresViewController
+            let destinationView = self.storyboard?.instantiateViewController(withIdentifier: "HighScoresViewController") as! HighScoresViewController
             self.navigationController?.pushViewController(destinationView, animated: true)
                 present(destinationView, animated:  true, completion: nil)
             
@@ -127,20 +131,60 @@ class NewGame2ViewController: UIViewController {
             
             // for frame overlap checking
             
-            if !isOverlapped(newBubble: bubble){
+            if !isOverlapped(newBubble:  bubble){
                 
-                bubble.addTarget(self, action: #selector(bubbleTapped), for:  UIControlEvents.touchUpInside)
+                // when the user tapped the bubble
+                bubble.addTarget(self, action: #selector(bubbleTapped), for:  UIControl.Event.touchUpInside)
+                
             // adding bubble to the view
                 self.view.addSubview(bubble)
                 
             // couner'
                 x += 1
+                
             // add bubble to array
                 bubbleArray += [bubble]
             }
         }
         
         
+    }
+    
+    // bubbleTapped function
+    @IBAction func bubbleTapped(_ bubbleClicked: Bubble){
+        
+        bubbleClicked.removeFromSuperview()
+        
+        //for combo points
+        if lastBubbleValue == bubbleClicked.value{
+            currentScore += bubbleClicked.value * 1.5
+            
+        }
+        else {
+            currentScore += bubbleClicked.value
+        }
+        lastBubbleValue = bubbleClicked.value
+        currenScoreLabel.text
+         = "\(currentScore)"
+        
+        if previousRankingDictionary == nil {
+            highestScore = currentScore
+        
+        }else if sortedHighScoreArray[0].value < currentScore {
+            highestScore = currentScore
+        }else if sortedHighScoreArray[0].value >= currentScore {
+            highestScore = sortedHighScoreArray[0].value
+        }
+    }
+    
+    // isOverlapped function
+    func isOverlapped (newBubble: Bubble)-> Bool{
+        for existingBubble in bubbleArray {
+            if newBubble.frame.intersects(existingBubble.frame){
+                return true
+            }
+        }
+        return false
     }
     
     // creatRandomFrame function

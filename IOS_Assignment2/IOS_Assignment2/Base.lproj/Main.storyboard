@@ -65,11 +65,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Game" id="xux-ap-VM3"/>
                     <connections>
-                        <outlet property="countDownLabel" destination="zKv-vD-h2K" id="kwe-Vg-2lU"/>
-                        <outlet property="currentScoreLabel" destination="9wh-ta-cfZ" id="3Iz-33-YM9"/>
+                        <outlet property="currenScoreLabel" destination="9wh-ta-cfZ" id="lcm-dJ-4mp"/>
                         <outlet property="gameTimeLabel" destination="zzY-5V-rXV" id="Fdh-08-cL3"/>
-                        <outlet property="scoreLabel" destination="9wh-ta-cfZ" id="pt6-2w-WsU"/>
-                        <outlet property="timeLabel" destination="zzY-5V-rXV" id="Utb-Ol-ZLL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P1d-zE-ATg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

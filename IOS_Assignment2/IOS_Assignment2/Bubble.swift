@@ -11,7 +11,9 @@ import UIKit
 class Bubble: UIButton{
     
     var value:Double = 0;
-    
+    var radius: UInt32{
+        return UInt32(UIScreen.main.bounds.width/10)
+    }
     required init?(coder aDecoder: NSCoder){
         super.init(coder: aDecoder)
     }
