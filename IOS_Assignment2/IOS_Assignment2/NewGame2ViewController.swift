@@ -13,7 +13,7 @@ class NewGame2ViewController: UIViewController {
     // declaring variables
     var gameTimer: Timer?
     var bubble = Bubble()
-    var bubbleArry = [Bubble]()
+    var bubbleArray = [Bubble]()
     var currentScore = 0;
     // Assigning user defaults values to variables
     var gameLength:Int = UserDefaults.standard.integer(forKey: "gameLength")
@@ -33,23 +33,141 @@ class NewGame2ViewController: UIViewController {
         return UInt32(UIScreen.main.bounds.height)
     }
     
-    
-    
+    // connected views
     
     @IBOutlet weak var gameTimeLabel: UILabel!
     
     @IBOutlet weak var currentScoreLabel: UILabel!
     
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // for comparing current score with highest score
+       previousRankingDictionary = UserDefaults.standard.dictionary(forKey: "ranking") as? Dictionary<String,Double>
+        if previousRankingDictionary != nil{
+            rankingDictionary = previousRankingDictionary!
+            sortedHighScoreArray = rankingDictionary.sorted(by: {$0.value > $1.value})
+        }
+        
+        //for game timer
+        
+        gameTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){
+            timer in
+            self.setRemainingTime()
+            self.removeBubble()
+            self.createBubble()
+        }
+        
+            // Do any additional setup after loading the view.
     }
     
+    // setRemainingTime function
+    
+    @objc func setRemainingTime(){
+        
+        // for updating game time label
+        gameTimeLabel.text = "\(gameLength)"
+        
+        //for checking if time ends
+        if (gameLength == 0){
+            gameTimer!.invalidate()
+            
+           // checkingHighScoreExistence()
+            
+            let destinationView = self.storyboard?.instantiateViewController(withIdentifier: "HighScoreViewController") as! HighScoresViewController
+            self.navigationController?.pushViewController(destinationView, animated: true)
+                present(destinationView, animated:  true, completion: nil)
+            
+        }else{
+            gameLength -= 1
+        }
+    }
+    
+    // set removeBubble function
+    
+    @objc func removeBubble(){
+        
+        var x = 0;
+        
+        while x < bubbleArray.count {
+            
+            // checking for 30 % possibility
+            if arc4random_uniform(11) < 30 {
+                let bubbleToBeRemoved = bubbleArray[x]
+                
+                // remove bubble(button) from super view
+                bubbleToBeRemoved.removeFromSuperview()
+                
+                // remove bubble from array list
+                bubbleArray.remove(at: x)
+                
+                // counter
+                x += 1
+            }
+        }
+    }
+    
+    // createBubble function
+    
+    @objc func createBubble(){
+        // for generating random number 1 to 15
+        let numberToCreate = arc4random_uniform(UInt32(bubbles - bubbleArray.count)) + 1
+        var x = 0
+        
+        while x < numberToCreate{
+            
+            // create bubble
+            
+            bubble = Bubble()
+            
+            // set the bubble position
+            
+            bubble.frame = createRandomFrame()
+            
+            // for frame overlap checking
+            
+            if !isOverlapped(newBubble: bubble){
+                
+                bubble.addTarget(self, action: #selector(bubbleTapped), for:  UIControlEvents.touchUpInside)
+            // adding bubble to the view
+                self.view.addSubview(bubble)
+                
+            // couner'
+                x += 1
+            // add bubble to array
+                bubbleArray += [bubble]
+            }
+        }
+        
+        
+    }
+    
+    // creatRandomFrame function
+    
+    func createRandomFrame() -> CGRect{
+        
+        let randomX = CGFloat(10 + arc4random_uniform(screenWidth - 2 * bubble.radius - 20))
+        let randomY = CGFloat(160 + arc4random_uniform(screenHeight - 2 * bubble.radius - 100))
+        
+        return CGRect (x: randomX, y: randomY,
+                       width: CGFloat(2 * bubble.radius),
+                       height: CGFloat(2 * bubble.radius))
+        
 
-    /*
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
