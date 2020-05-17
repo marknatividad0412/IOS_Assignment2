@@ -80,7 +80,7 @@ class NewGame2ViewController: UIViewController {
             
            // checkingHighScoreExistence()
             
-            let destinationView = self.storyboard?.instantiateViewController(withIdentifier: "HighScoresViewController") as! HighScoresViewController
+            let destinationView = self.storyboard?.instantiateViewController(withIdentifier: "HighScoresListTableTableViewController") as! HighScoresListTableTableViewController
             self.navigationController?.pushViewController(destinationView, animated: true)
                 present(destinationView, animated:  true, completion: nil)
             

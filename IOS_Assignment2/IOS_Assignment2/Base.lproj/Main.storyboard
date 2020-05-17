@@ -113,7 +113,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="RJn-bS-QUZ" kind="show" id="o96-EE-XPF"/>
+                                    <segue destination="aH4-xy-phs" kind="show" id="a5B-bY-54E"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AQy-t9-4tt">
@@ -208,6 +208,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="850.72463768115949" y="133.92857142857142"/>
+        </scene>
+        <!--High Scores List Table Table View Controller-->
+        <scene sceneID="aKd-Ff-Qc4">
+            <objects>
+                <tableViewController storyboardIdentifier="HighScoresListTableTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aH4-xy-phs" customClass="HighScoresListTableTableViewController" customModule="IOS_Assignment2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3iB-q0-8Qh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HighScoresList" id="ZH9-RM-bbe">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZH9-RM-bbe" id="eRt-mG-vUc">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aH4-xy-phs" id="XIf-yv-jaf"/>
+                            <outlet property="delegate" destination="aH4-xy-phs" id="oWN-Iw-wQF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="LZR-9z-aRQ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fPk-lz-eng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1636" y="141"/>
         </scene>
         <!--Settings-->
         <scene sceneID="ltc-dK-4yc">
@@ -347,22 +376,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6c-PT-ccv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="850.39999999999998" y="817.24137931034488"/>
-        </scene>
-        <!--High Scores-->
-        <scene sceneID="99J-rs-jHR">
-            <objects>
-                <viewController storyboardIdentifier="HighScoresViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RJn-bS-QUZ" customClass="HighScoresViewController" customModule="IOS_Assignment2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vAV-4k-QS1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="c2E-fU-W4D"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="High Scores" id="RZY-u6-duj"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zNG-El-eyB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1526" y="137"/>
         </scene>
         <!--Main Navigation Controller-->
         <scene sceneID="XBb-gO-ACQ">
