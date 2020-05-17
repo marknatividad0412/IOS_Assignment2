@@ -10,7 +10,7 @@
         <!--New Game-->
         <scene sceneID="sw2-j9-xUu">
             <objects>
-                <viewController storyboardIdentifier="NewGameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="R56-kt-IQY" customClass="NewGameViewController" customModule="IOS_Assignment2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewGame2ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="R56-kt-IQY" customClass="NewGame2ViewController" customModule="IOS_Assignment2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fdS-VN-zBY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,6 +66,8 @@
                     <navigationItem key="navigationItem" title="New Game" id="xux-ap-VM3"/>
                     <connections>
                         <outlet property="countDownLabel" destination="zKv-vD-h2K" id="kwe-Vg-2lU"/>
+                        <outlet property="currentScoreLabel" destination="9wh-ta-cfZ" id="3Iz-33-YM9"/>
+                        <outlet property="gameTimeLabel" destination="zzY-5V-rXV" id="Fdh-08-cL3"/>
                         <outlet property="scoreLabel" destination="9wh-ta-cfZ" id="pt6-2w-WsU"/>
                         <outlet property="timeLabel" destination="zzY-5V-rXV" id="Utb-Ol-ZLL"/>
                     </connections>
