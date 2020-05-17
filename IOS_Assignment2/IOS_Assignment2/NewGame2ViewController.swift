@@ -46,7 +46,8 @@ class NewGame2ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        currenScoreLabel.text = "0";
         // for comparing current score with highest score
        previousRankingDictionary = UserDefaults.standard.dictionary(forKey: "ranking") as? Dictionary<String,Double>
         if previousRankingDictionary != nil{
@@ -191,7 +192,7 @@ class NewGame2ViewController: UIViewController {
     func createRandomFrame() -> CGRect{
         
         let randomX = CGFloat(10 + arc4random_uniform(screenWidth - 2 * bubble.radius - 20))
-        let randomY = CGFloat(160 + arc4random_uniform(screenHeight - 2 * bubble.radius - 100))
+        let randomY = CGFloat(170 + arc4random_uniform(screenHeight - 2 * bubble.radius - 160))
         
         return CGRect (x: randomX, y: randomY,
                        width: CGFloat(2 * bubble.radius),
