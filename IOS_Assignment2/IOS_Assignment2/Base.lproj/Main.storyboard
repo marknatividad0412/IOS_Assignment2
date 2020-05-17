@@ -113,7 +113,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="aH4-xy-phs" kind="show" id="a5B-bY-54E"/>
+                                    <segue destination="1kw-0d-YPq" kind="show" id="HI4-SH-h4e"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AQy-t9-4tt">
@@ -209,34 +209,53 @@
             </objects>
             <point key="canvasLocation" x="850.72463768115949" y="133.92857142857142"/>
         </scene>
-        <!--High Scores List Table Table View Controller-->
-        <scene sceneID="aKd-Ff-Qc4">
+        <!--High Scores-->
+        <scene sceneID="LhC-yn-zJf">
             <objects>
-                <tableViewController storyboardIdentifier="HighScoresListTableTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aH4-xy-phs" customClass="HighScoresListTableTableViewController" customModule="IOS_Assignment2" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3iB-q0-8Qh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                <viewController storyboardIdentifier="HighScoresViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1kw-0d-YPq" customClass="HighScoresViewController" customModule="IOS_Assignment2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jHR-dn-Ahx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Scores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcw-ZW-gPH">
+                                <rect key="frame" x="137.5" y="37" width="100" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5hq-dm-chl">
+                                <rect key="frame" x="0.0" y="108" width="375" height="359"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6U-EN-f7j">
+                                <rect key="frame" x="168.5" y="493" width="38" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Back"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HighScoresList" id="ZH9-RM-bbe">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZH9-RM-bbe" id="eRt-mG-vUc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="aH4-xy-phs" id="XIf-yv-jaf"/>
-                            <outlet property="delegate" destination="aH4-xy-phs" id="oWN-Iw-wQF"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="LZR-9z-aRQ"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fPk-lz-eng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="dbZ-XJ-vgw" firstAttribute="bottom" secondItem="5hq-dm-chl" secondAttribute="bottom" constant="156" id="8eT-CZ-z2p"/>
+                            <constraint firstItem="N6U-EN-f7j" firstAttribute="centerX" secondItem="dbZ-XJ-vgw" secondAttribute="centerX" id="Iqw-LZ-9e3"/>
+                            <constraint firstItem="zcw-ZW-gPH" firstAttribute="centerX" secondItem="dbZ-XJ-vgw" secondAttribute="centerX" id="MlP-Re-W6N"/>
+                            <constraint firstItem="5hq-dm-chl" firstAttribute="top" secondItem="zcw-ZW-gPH" secondAttribute="bottom" constant="50" id="MsW-SP-CTQ"/>
+                            <constraint firstItem="N6U-EN-f7j" firstAttribute="top" secondItem="5hq-dm-chl" secondAttribute="bottom" constant="26" id="XgT-lR-M6y"/>
+                            <constraint firstItem="dbZ-XJ-vgw" firstAttribute="trailing" secondItem="5hq-dm-chl" secondAttribute="trailing" id="s9F-d4-Uw8"/>
+                            <constraint firstItem="zcw-ZW-gPH" firstAttribute="top" secondItem="dbZ-XJ-vgw" secondAttribute="top" constant="37" id="w4W-Sl-i1b"/>
+                            <constraint firstItem="5hq-dm-chl" firstAttribute="leading" secondItem="dbZ-XJ-vgw" secondAttribute="leading" id="wRM-WN-HGt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dbZ-XJ-vgw"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="High Scores" id="2oi-nD-cCo">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="yL5-VA-99B"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ViZ-mr-7xW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1636" y="141"/>
+            <point key="canvasLocation" x="1604" y="143.47826086956522"/>
         </scene>
         <!--Settings-->
         <scene sceneID="ltc-dK-4yc">
@@ -397,6 +416,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="0mZ-iO-7Tn"/>
         <segue reference="jvR-Zc-AdD"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -2,7 +2,7 @@
 //  HighScoresViewController.swift
 //  IOS_Assignment2
 //
-//  Created by Mark Anthony Natividad on 16/5/20.
+//  Created by Mark Anthony Natividad on 17/5/20.
 //  Copyright © 2020 Mark Anthony Natividad. All rights reserved.
 //
 

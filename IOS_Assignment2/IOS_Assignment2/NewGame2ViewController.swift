@@ -79,10 +79,14 @@ class NewGame2ViewController: UIViewController {
             gameTimer!.invalidate()
             
            // checkingHighScoreExistence()
-            
+            /*
             let destinationView = self.storyboard?.instantiateViewController(withIdentifier: "HighScoresListTableTableViewController") as! HighScoresListTableTableViewController
             self.navigationController?.pushViewController(destinationView, animated: true)
-                present(destinationView, animated:  true, completion: nil)
+            present(destinationView, animated:  true, completion: nil)
+            */
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle:  nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "HighScoresViewController") as! HighScoresViewController
+            self.present(nextViewController, animated: true, completion: nil)
             
         }else{
             gameLength -= 1
