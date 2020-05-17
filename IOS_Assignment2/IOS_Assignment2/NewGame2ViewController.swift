@@ -128,8 +128,7 @@ class NewGame2ViewController: UIViewController {
             // set the bubble position
             
             bubble.frame = createRandomFrame()
-            
-            // for frame overlap checking
+            bubble.layer.cornerRadius = bubble.frame.height/2            // for frame overlap checking
             
             if !isOverlapped(newBubble:  bubble){
                 
@@ -201,6 +200,33 @@ class NewGame2ViewController: UIViewController {
 
     }
     
+    // saveHighScore function
+    func saveHighScore(){
+        
+        rankingDictionary.updateValue(currentScore,  forKey: "playerName")
+        UserDefaults.standard.set(rankingDictionary, forKey: "ranking")
+        }
+    
+    // checkHighScoreExistence function
+    func checkHighScoreExistence(){
+        if previousRankingDictionary == nil {
+            saveHighScore()
+        }else {
+            rankingDictionary = previousRankingDictionary!
+            if rankingDictionary.keys.contains("playerName"){
+                let oldScore = rankingDictionary["playerName"]!
+                if oldScore < currentScore{
+                    saveHighScore()
+                }
+            }else{
+                saveHighScore()
+            }
+            
+    }
+        
+        
+        //end of class
+    }
     
     
     

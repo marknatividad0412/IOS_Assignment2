@@ -47,12 +47,12 @@ class Bubble: UIButton{
     func pulsate(){
         
         let pulse = CASpringAnimation(keyPath: "transform.scale")
-        pulse.duration = 0.2
-        pulse.fromValue = 0.8
-        pulse.toValue = 1.0
+        pulse.duration = 0.3
+        pulse.fromValue = 0.6
+        pulse.toValue = 0.4
         pulse.autoreverses = true
-        pulse.repeatCount = 3
-        pulse.initialVelocity = 1
+        pulse.repeatCount = 1
+        pulse.initialVelocity = 0.5
         pulse.damping = 1.0
         
         layer.add(pulse, forKey: "pulse")
